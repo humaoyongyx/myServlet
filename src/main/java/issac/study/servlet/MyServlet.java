@@ -36,10 +36,18 @@ public class MyServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("request:" + req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + req.getContextPath() + req.getServletPath());
-        System.out.println(req.getRequestURI());
-        System.out.println(req.getRequestURL());
-        System.out.println(req.getPathInfo());
+        System.out.println("servlet doGet");
         resp.sendRedirect("index.jsp");
+    }
+
+
+    @Override
+    public void init() throws ServletException {
+        System.out.println("servlet init()");
+    }
+
+    @Override
+    public void destroy() {
+        System.out.println("servlet destroy()");
     }
 }
