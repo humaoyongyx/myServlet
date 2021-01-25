@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author issac.hu
@@ -37,7 +39,14 @@ public class MyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("servlet doGet");
-        resp.sendRedirect("index.jsp");
+        List<Map<String, Object>> query = null;
+        try {
+            query = MySqlUtils.query();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        req.setAttribute("data", query);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 
 

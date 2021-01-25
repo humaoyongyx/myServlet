@@ -20,7 +20,7 @@
     <listener>
         <listener-class>issac.study.servlet.MyRequestListener</listener-class>
     </listener>
-    
+
     <servlet>
         <servlet-name>testServlet</servlet-name>
         <servlet-class>issac.study.servlet.MyServlet</servlet-class>
@@ -28,7 +28,7 @@
 
     <servlet-mapping>
         <servlet-name>testServlet</servlet-name>
-        <url-pattern>/</url-pattern> <!--/和/*的区别在于后者会拦截所有请求，而前者会放过jsp的请求-->
+        <url-pattern>/test</url-pattern> <!--/和/*的区别在于后者会拦截所有请求，而前者会放过jsp的请求-->
     </servlet-mapping>
 
 </web-app>
